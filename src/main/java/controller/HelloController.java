@@ -14,14 +14,14 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 /**
- * ´¦ÀíÆ÷
+ * å¤„ç†å™¨
  */
 @Controller
 public class HelloController {
 	HttpServletRequest request;
 	@RequestMapping("/hello.do")
 	public String hello(){
-		System.out.println("HelloControllerµÄ·½·¨");
+		System.out.println("HelloControllerçš„æ–¹æ³•");
 		return "hello";
 	}
 	@RequestMapping("/toLogin.do")
@@ -32,13 +32,13 @@ public class HelloController {
 	
 	@RequestMapping("/login.do")
 	/**
-	 * ¶ÁÈ¡ÇëÇó²ÎÊıµÄµÚÒ»ÖÖ·½Ê½£º
-	 * Ê¹ÓÃÇëÇórequest¶ÔÏó¡£
-	 * ×¢£ºÇ°¶Ë¿ØÖÆÆ÷»á½«request¶ÔÏó×÷Îª²ÎÊı´«½øÀ´
+	 * è¯»å–è¯·æ±‚å‚æ•°çš„ç¬¬ä¸€ç§æ–¹å¼ï¼š
+	 * ä½¿ç”¨è¯·æ±‚requestå¯¹è±¡ã€‚
+	 * æ³¨ï¼šå‰ç«¯æ§åˆ¶å™¨ä¼šå°†requestå¯¹è±¡ä½œä¸ºå‚æ•°ä¼ è¿›æ¥
 	 */
 	//http://localhost:8081/springcase-springmvc2/login.do?adminCode=aaa&pwd=aaaaa
 	public void checkLogin(HttpServletRequest request) throws UnsupportedEncodingException{
-		//ÂÒÂëÎÊÌâ´ı½â¾ö
+		//ä¹±ç é—®é¢˜å¾…è§£å†³
 		System.out.println("helloController-checkLogin");
 		String adminCode=request.getParameter("adminCode");
 		String pwd=request.getParameter("pwd");
@@ -48,49 +48,49 @@ public class HelloController {
 	@RequestMapping("/login2.do")
 	//http://localhost:8081/springcase-springmvc2/login2.do?adminCode=aaa&pwd=aaaaa
 	public void checklogin2(String adminCode,String pwd){
-		//ÂÒÂëÎÊÌâ´ı½â¾ö
+		//ä¹±ç é—®é¢˜å¾…è§£å†³
 		System.out.println("checkLogin2()..");
 		System.out.println("adminCode:"+adminCode+"  pwd:"+pwd);
 	}
 	
 	@RequestMapping("/login3.do")
 	////http://localhost:8081/springcase-springmvc2/login3.do
-	//Ã»³É¹¦Å¶
+	//æ²¡æˆåŠŸå“¦
 	public String checkLogin3(){
 		return "login31.do";
 	}
 	@RequestMapping("/login31.do")
 	public String checkLogin31(Admin admin){
 		System.out.println("checkLogin3()");
-		System.out.println("admincode£º"+admin.getAdminCode()+" pwd:"+admin.getPwd());
+		System.out.println("admincodeï¼š"+admin.getAdminCode()+" pwd:"+admin.getPwd());
 		return "index";
 	}
 	
 	@RequestMapping("/login4.do")
 	/*
-	 * ÏòÒ³Ãæ´«ÖµµÃµÚÒ»ÖÖ·½Ê½
-	 * Ê¹ÓÃresquest¶ÔÏó
+	 * å‘é¡µé¢ä¼ å€¼å¾—ç¬¬ä¸€ç§æ–¹å¼
+	 * ä½¿ç”¨resquestå¯¹è±¡
 	 */
 	public String checkLogin4(Admin admin,HttpServletRequest request){
 		System.out.println("checkLogin4()...");
 		System.out.println("adminCode:"+admin.getAdminCode());
-		//ÏòÒ³Ãæ´«Öµ
+		//å‘é¡µé¢ä¼ å€¼
 		request.setAttribute("adminCode",admin.getAdminCode());
-		//Ä¬ÈÏÊÇÊ¹ÓÃ×ª·¢µÄ·½Ê½
+		//é»˜è®¤æ˜¯ä½¿ç”¨è½¬å‘çš„æ–¹å¼
 		return "index";
 	}
 	
 	
 	@RequestMapping("/login5.do")
 	/*
-	 * ÏòÒ³Ãæ´«ÖµµÄµÚ¶şÖÖ·½Ê½
-	 * Ê¹ÓÃModelMap×÷Îª·½·¨µÄ²ÎÊı
+	 * å‘é¡µé¢ä¼ å€¼çš„ç¬¬äºŒç§æ–¹å¼
+	 * ä½¿ç”¨ModelMapä½œä¸ºæ–¹æ³•çš„å‚æ•°
 	 */
 	public String checkLogin5(Admin admin,ModelMap data){
 			System.out.println("checkLogin5()...");
 			System.out.println("adminCode:"+admin.getAdminCode());
 			/*
-			 *µÈÍ¬ÓÚrequest.setAttribute 
+			 *ç­‰åŒäºrequest.setAttribute 
 			  */
 			data.addAttribute("admincode",  admin.getAdminCode());
 		return "index";
@@ -98,8 +98,8 @@ public class HelloController {
 	
 	@RequestMapping("/login6.do")
 	/*
-	 * ÏòÒ³Ãæ´«ÖµµÄµÚÈıÖÖ·½Ê½£º
-	 * Ê¹ÓÃsession¶ÔÏó°ó¶¨Êı¾İ
+	 * å‘é¡µé¢ä¼ å€¼çš„ç¬¬ä¸‰ç§æ–¹å¼ï¼š
+	 * ä½¿ç”¨sessionå¯¹è±¡ç»‘å®šæ•°æ®
 	 */
 	public String checkLogin6(Admin admin,HttpSession session){
 			System.out.println("checkLogin6()...");
@@ -113,7 +113,7 @@ public class HelloController {
 		System.out.println("checkLogin7()..");
 		System.out.println("adminCode:"+admin.getAdminCode());
 		Map<String,Object> data=new HashMap<String,Object>();
-		//Ïàµ±ÓÚrequest,setAttribute
+		//ç›¸å½“äºrequest,setAttribute
 		data.put("adminCode", "123");
 		ModelAndView mav=new ModelAndView("index",data);
 		return mav;
@@ -121,8 +121,8 @@ public class HelloController {
 	
 	@RequestMapping("/login8.do")
 	/*
-	 * ÖØ¶¨ÏòµÚÒ»ÖÖ·½Ê½£º
-	 * Èç¹û´¦Àí·½·¨µÄ·µ»ØÖµÊÇString,ĞèÒªÔÚÖØ¶¨ÏòµØÖ·Ç°Ìí¼Ó"redirect"
+	 * é‡å®šå‘ç¬¬ä¸€ç§æ–¹å¼ï¼š
+	 * å¦‚æœå¤„ç†æ–¹æ³•çš„è¿”å›å€¼æ˜¯String,éœ€è¦åœ¨é‡å®šå‘åœ°å€å‰æ·»åŠ "redirect"
 	 */
 	public String checkLogin8(){
 		System.out.println("checkLogin8()");
@@ -131,7 +131,7 @@ public class HelloController {
 	
 	@RequestMapping("/login9.do")
 	/*
-	 * ÖØ¶¨ÏòµÄµÚ¶şÖÖ·½Ê½£º
+	 * é‡å®šå‘çš„ç¬¬äºŒç§æ–¹å¼ï¼š
 	 */
 	public ModelAndView checkLogin9(){
 		System.out.println("checkLogin9()...");
